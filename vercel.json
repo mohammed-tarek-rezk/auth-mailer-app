@@ -4,16 +4,24 @@
       {
         "src": "backend/index.js",  
         "use": "@vercel/node"
+      },
+      {
+        "src": "frontend/package.json",  
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "frontend/dist"  
+        }
       }
     ],
     "routes": [
       {
-        "src": "(.*)",  
+        "src": "/api/(.*)",  
         "dest": "/backend/index.js"
+      },
+      {
+        "src": "/(.*)",  
+        "dest": "/frontend/$1"
       }
-    ],
-    "scripts": {
-      "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
-    }
+    ]
   }
   
