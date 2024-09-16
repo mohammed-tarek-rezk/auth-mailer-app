@@ -1,0 +1,7 @@
+export {default as FloatingShapes} from "./FloatingShapes"
+export {default as Login} from "./Login"
+export {default as Register} from "./Register"
+export {default as VerifyEmail} from "./VerifyEmail"
+export {default as ForgetEmail} from "./ForgetEmail"
+export {default as ResetEmail} from "./ResetEmail"
+export {default as Input} from "./Input"
