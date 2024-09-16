@@ -9,14 +9,14 @@ const AppError = require('./utils/AppError')
 const userRoute = require('./routes/user.route')
 const app = express()
 const port =  process.env.PORT || 5500
-
+const path  = require('path')
 
 app.use(cors({origin:"http://localhost:5173" , credentials: true}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 app.use(cookieParser())
 app.use("/api/users", userRoute)
-
+ __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
