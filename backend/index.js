@@ -16,7 +16,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 app.use(cookieParser())
 app.use("/api/users", userRoute)
-app.use("*",(req, res, next)=> next(AppError.create(statusText.FAIL , 404 , "Not Found" , null)))
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+	});
+}
+
 
 app.use((error , req , res , next)=>{
     

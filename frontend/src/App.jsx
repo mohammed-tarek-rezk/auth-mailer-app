@@ -40,6 +40,7 @@ function App() {
         <Route path={MAIN_LINKS.VERIFY_EMAIL}  element={<VerifyEmail/>}/>
         <Route path={MAIN_LINKS.FORGET_PASSWORD}  element={<ForgetEmail/>}/>
         <Route path="/reset-password/:token"  element={<ResetEmail/>}/>
+        <Route path="*"  element={<HomePage/>}/>
       </Routes>
       <Toaster />
     </div>
